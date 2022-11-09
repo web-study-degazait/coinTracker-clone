@@ -125,6 +125,8 @@ function Coin() {
   const { state } = useLocation<RouteState>();
   const [info, setInfo] = useState<InfoData>();
   const [priceInfo, setPriceInfo] = useState<PriceData>();
+  const priceMatch = useRouteMatch("/:coinId/price");
+  const chartMatch = useRouteMatch("/:coinId/chart");
   useEffect(() => {
     (async () => {
       const infoData = await (
@@ -176,19 +178,21 @@ function Coin() {
               <span>{priceInfo?.max_supply}</span>
             </OverviewItem>
           </Overview>
+
           <Tabs>
-            <Tab>
+            <Tab isActive={chartMatch !== null}>
               <Link to={`/${coinId}/chart`}>Chart</Link>
             </Tab>
-            <Tab>
-              <Link to={`/${coinId}/price`}>Chart</Link>
+            <Tab isActive={priceMatch !== null}>
+              <Link to={`/${coinId}/price`}>Price</Link>
             </Tab>
           </Tabs>
+
           <Switch>
-            <Route path={`/${coinId}/price`}>
+            <Route path={`/:coinId/price`}>
               <Price />
             </Route>
-            <Route path={`/${coinId}/chart`}>
+            <Route path={`/:coinId/chart`}>
               <Chart />
             </Route>
           </Switch>
