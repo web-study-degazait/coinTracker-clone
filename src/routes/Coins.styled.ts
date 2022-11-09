@@ -49,3 +49,4 @@ export const Img = styled.img`
   height: 35px;
   margin-right: 10px;
 `;
+
