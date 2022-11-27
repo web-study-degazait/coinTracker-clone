@@ -17,7 +17,7 @@ export const ConisList = styled.ul``;
 
 export const Coin = styled.li`
   background-color: white;
-  color: ${(props) => props.theme.bgColor};
+  color: ${(props) => props.theme.textColor};
   margin-bottom: 10px;
 
   border-radius: 15px;
@@ -49,4 +49,3 @@ export const Img = styled.img`
   height: 35px;
   margin-right: 10px;
 `;
-
