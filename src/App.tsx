@@ -1,7 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Router from "./Router";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "./theme";
 import { useState } from "react";
 
@@ -74,9 +73,8 @@ function App() {
   return (
     <>
       <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
-        <button onClick={toggleDark}>Toggle Mode</button>
         <GlobalStyle />
-        <Router />
+        <Router isDark={isDark} toggleDark={toggleDark} />
         <ReactQueryDevtools initialIsOpen={true} />
       </ThemeProvider>
     </>
