@@ -29,13 +29,12 @@ interface ICoinsProps {
   toggleDark: () => void;
 }
 
-function Coins({ toggleDark }: ICoinsProps) {
+function Coins() {
   const { isLoading, data } = useQuery<ICoin[]>(["allCoins"], fetchCoins);
   return (
     <Container>
       <Helmet>
         <title>코인</title>
-        <button onClick={toggleDark}>Toggle Mode</button>
       </Helmet>
       <Header>
         <Title>백트코인</Title>
